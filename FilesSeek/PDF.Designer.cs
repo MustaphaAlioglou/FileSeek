@@ -51,6 +51,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textFilesSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -157,15 +158,16 @@
             // powerPointToolStripMenuItem
             // 
             this.powerPointToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.powerPointSearchToolStripMenuItem});
+            this.powerPointSearchToolStripMenuItem,
+            this.textFilesSearchToolStripMenuItem});
             this.powerPointToolStripMenuItem.Name = "powerPointToolStripMenuItem";
-            this.powerPointToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.powerPointToolStripMenuItem.Text = "PowerPoint";
+            this.powerPointToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.powerPointToolStripMenuItem.Text = "Other Formats";
             // 
             // powerPointSearchToolStripMenuItem
             // 
             this.powerPointSearchToolStripMenuItem.Name = "powerPointSearchToolStripMenuItem";
-            this.powerPointSearchToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.powerPointSearchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.powerPointSearchToolStripMenuItem.Text = "PowerPoint Search";
             this.powerPointSearchToolStripMenuItem.Click += new System.EventHandler(this.powerPointSearchToolStripMenuItem_Click);
             // 
@@ -298,6 +300,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
             // 
+            // textFilesSearchToolStripMenuItem
+            // 
+            this.textFilesSearchToolStripMenuItem.Name = "textFilesSearchToolStripMenuItem";
+            this.textFilesSearchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.textFilesSearchToolStripMenuItem.Text = "Text Files Search";
+            this.textFilesSearchToolStripMenuItem.Click += new System.EventHandler(this.textFilesSearchToolStripMenuItem_Click);
+            // 
             // PDF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,6 +363,7 @@
         private System.Windows.Forms.ToolStripMenuItem powerPointToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem powerPointSearchToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolStripMenuItem textFilesSearchToolStripMenuItem;
     }
 }
 

@@ -7,17 +7,18 @@ using System.Threading;
 using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Reflection.Emit;
+using PDFDetective;
 
 namespace WindowsFormsApp8
 {
     public partial class PDF : Form
     {
         private List<string> files = new List<string>();
+
         public PDF()
         {
             InitializeComponent();
             radioButton1.Checked = true;
-
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,16 +46,14 @@ namespace WindowsFormsApp8
 
             result.Text = "";
             extract.Text = "";
-                //---------------------------------------------------------------------
-                //if radioButton1 is selected
-                if (radioButton1.Checked == true)
+            //---------------------------------------------------------------------
+            //if radioButton1 is selected
+            if (radioButton1.Checked == true)
             {
-                
                 foreach (string item in files)
                 {
                     using (PdfDocument document = PdfDocument.Open(item))
                     {
-
                         for (var i = 0; i < document.NumberOfPages; i++)
                         {
                             // This starts at 1 rather than 0.
@@ -70,7 +69,6 @@ namespace WindowsFormsApp8
                                     result.Text += "------------------------------" + "\n";
                                     extract.Text += page.Text + "\n";
                                     extract.Text += item + "page :" + i + "-----------------\n";
-
                                 }
                                 if (result.Text == "")
                                 {
@@ -81,7 +79,6 @@ namespace WindowsFormsApp8
                     }
                 }
                 this.BackColor = ColorTranslator.FromHtml("#eb3b5a");
-
             }
             //---------------------------------------------------------------------
             //if radioButton2 is selected
@@ -92,7 +89,6 @@ namespace WindowsFormsApp8
                 {
                     using (PdfDocument document = PdfDocument.Open(item))
                     {
-
                         for (var i = 0; i < document.NumberOfPages; i++)
                         {
                             // This starts at 1 rather than 0.
@@ -106,7 +102,6 @@ namespace WindowsFormsApp8
                                 extract.Text += page.Text + "\n";
                                 extract.Text += item + "page :" + i + "-----------------\n";
                             }
-
                         }
                         if (result.Text == "")
                         {
@@ -116,23 +111,21 @@ namespace WindowsFormsApp8
                 }
             }
             this.BackColor = ColorTranslator.FromHtml("#273c75");
-
         }
 
         private void solarizedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.BackColor          = ColorTranslator.FromHtml("#273c75");
-            result.BackColor        = ColorTranslator.FromHtml("#192a56");
-            extract.BackColor       = ColorTranslator.FromHtml("#192a56");
-            searcht.BackColor       = ColorTranslator.FromHtml("#40739e");
-            searcht.BackColor  = ColorTranslator.FromHtml("#40739e");
-            total.BackColor         = ColorTranslator.FromHtml("#273c75");
-            label1.BackColor        = ColorTranslator.FromHtml("#273c75"); 
-            label2.BackColor        = ColorTranslator.FromHtml("#273c75"); 
-            label3.BackColor        = ColorTranslator.FromHtml("#273c75"); 
-            label4.BackColor        = ColorTranslator.FromHtml("#273c75"); 
-            button1.BackColor       = ColorTranslator.FromHtml("#40739e");
-
+            this.BackColor = ColorTranslator.FromHtml("#273c75");
+            result.BackColor = ColorTranslator.FromHtml("#192a56");
+            extract.BackColor = ColorTranslator.FromHtml("#192a56");
+            searcht.BackColor = ColorTranslator.FromHtml("#40739e");
+            searcht.BackColor = ColorTranslator.FromHtml("#40739e");
+            total.BackColor = ColorTranslator.FromHtml("#273c75");
+            label1.BackColor = ColorTranslator.FromHtml("#273c75");
+            label2.BackColor = ColorTranslator.FromHtml("#273c75");
+            label3.BackColor = ColorTranslator.FromHtml("#273c75");
+            label4.BackColor = ColorTranslator.FromHtml("#273c75");
+            button1.BackColor = ColorTranslator.FromHtml("#40739e");
 
             result.ForeColor = ColorTranslator.FromHtml("#fbc531");
             extract.ForeColor = ColorTranslator.FromHtml("#fbc531");
@@ -148,7 +141,6 @@ namespace WindowsFormsApp8
 
         private void searcht_KeyDown(object sender, KeyEventArgs e)
         {
-          
             if (e.KeyCode == Keys.Enter)
             {
                 button1.PerformClick();
@@ -161,7 +153,6 @@ namespace WindowsFormsApp8
             {
                 radioButton2.Checked = false;
             }
-           
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -178,7 +169,14 @@ namespace WindowsFormsApp8
             this.Hide();
             ee.ShowDialog();
             this.Show();
+        }
 
+        private void textFilesSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Text ee = new Text();
+            this.Hide();
+            ee.ShowDialog();
+            this.Show();
         }
     }
 }
