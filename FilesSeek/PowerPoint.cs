@@ -38,7 +38,7 @@ namespace WindowsFormsApp8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.BackColor = ColorTranslator.FromHtml("#eb3b5a");
+            this.BackColor = ColorTranslator.FromHtml("#C4C4C4");
             result.Text = "";
             extract.Text = "";
 
@@ -74,19 +74,16 @@ namespace WindowsFormsApp8
                         result.Text += "Page :" + i + "\n";
                         extract.Text += temp;
                         extract.Text += item + "page :" + i + "-----------------\n\n";
-
                     }
 
                     temp.Clear();
                 }
-                
-
             }
             if (result.Text == "")
             {
                 result.Text = "not found";
             }
-            this.BackColor = ColorTranslator.FromHtml("#273c75");
+            this.BackColor = ColorTranslator.FromHtml("#2D2D30");
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Spire.Pdf.Exporting.XPS.Schema;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +14,9 @@ namespace PDFDetective
 {
     public partial class Text : Form
     {
-        private IEnumerable<string> FolderFiles;
-        private List<string> files = new List<string>();
+        private List<string> textFilesPath = new List<string>();
+        private int range = 5;
+        private int totalfound = 0;
 
         public Text()
         {
@@ -25,35 +25,59 @@ namespace PDFDetective
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            files.Clear();
-
-            FolderBrowserDialog ee = new FolderBrowserDialog();
-            if (ee.ShowDialog() == DialogResult.OK)
-                FolderFiles = Directory.EnumerateFiles(ee.SelectedPath);
-            foreach (var item in FolderFiles)
+            textFilesPath.Clear();
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Multiselect = true;
+            ofd.Filter =
+             "*.txt|*.txt|" +
+             "All files (*.*)|*.*";
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                if (item.EndsWith(".txt"))
+                foreach (var textfile in ofd.FileNames)
                 {
-                    files.Add(item);
+                    textFilesPath.Add(textfile);
                 }
             }
-            total.Text = files.Count.ToString();
+            total.Text = textFilesPath.Count().ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            totalfound = 0;
+            if (rangee.Text != string.Empty)
+                int.TryParse(rangee.Text, out range);
+
+            int currentLine = 0;
+            result.Clear();
             extract.Clear();
-            Regex rg = new Regex(@searcht.Text);
-            foreach (var item in files)
+            var regex = new Regex(searcht.Text);
+            List<string> lines;
+            foreach (var textfilepath in textFilesPath)
             {
-                string fileText = File.ReadAllText(item);
-                MatchCollection shit = rg.Matches(fileText);
-                foreach (var email in shit)
+                lines = File.ReadLines(textfilepath).ToList();
+                foreach (var line in lines)
                 {
-                    result.Text += item + "\n";
-                    extract.Text += email + "\n";
+                    if (regex.IsMatch(line))
+                    {
+                        totalfound++;
+                        result.Text += textfilepath + Environment.NewLine + " ---------------------------------------" + Environment.NewLine;
+                        extract.Text += Environment.NewLine + "File (" + Path.GetFileName(textfilepath) + ")" +
+                            " ---------------------------------------" + Environment.NewLine;
+                        for (int i = -range; i < 0; i++)
+                        {
+                            extract.Text += lines[currentLine + i] + Environment.NewLine;
+                        }
+                        extract.Text += line + Environment.NewLine;
+                        for (int i = 1; i <= range; i++)
+                        {
+                            extract.Text += lines[currentLine + i] + Environment.NewLine;
+                        }
+                    }
+                    currentLine++;
                 }
+                currentLine = 0;
             }
+            lfound.Text = totalfound.ToString();
         }
     }
 }
