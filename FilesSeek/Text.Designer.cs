@@ -265,6 +265,7 @@
             this.Controls.Add(this.extract);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Text";
+            this.ShowIcon = false;
             this.Text = "Text";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

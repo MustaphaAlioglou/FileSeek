@@ -223,6 +223,7 @@
             this.Controls.Add(this.result);
             this.MinimumSize = new System.Drawing.Size(960, 540);
             this.Name = "PowerPoint";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PowerPoint";
             this.menuStrip1.ResumeLayout(false);

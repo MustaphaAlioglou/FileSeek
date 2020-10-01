@@ -67,7 +67,7 @@ namespace PDFDetective
                         {
                             extract.Text += lines[currentLine + i] + Environment.NewLine;
                         }
-                        extract.Text += line + Environment.NewLine;
+                        extract.Text += "FOUND IT --->" + line + Environment.NewLine;
                         for (int i = 1; i <= range; i++)
                         {
                             extract.Text += lines[currentLine + i] + Environment.NewLine;

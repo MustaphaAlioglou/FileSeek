@@ -34,6 +34,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.powerPointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.powerPointSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textFilesSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.searcht = new System.Windows.Forms.RichTextBox();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,6 +119,13 @@
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // powerPointToolStripMenuItem
             // 
             this.powerPointToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -131,14 +138,14 @@
             // powerPointSearchToolStripMenuItem
             // 
             this.powerPointSearchToolStripMenuItem.Name = "powerPointSearchToolStripMenuItem";
-            this.powerPointSearchToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.powerPointSearchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.powerPointSearchToolStripMenuItem.Text = "PowerPoint Search";
             this.powerPointSearchToolStripMenuItem.Click += new System.EventHandler(this.powerPointSearchToolStripMenuItem_Click);
             // 
             // textFilesSearchToolStripMenuItem
             // 
             this.textFilesSearchToolStripMenuItem.Name = "textFilesSearchToolStripMenuItem";
-            this.textFilesSearchToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.textFilesSearchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.textFilesSearchToolStripMenuItem.Text = "Text Files Search";
             this.textFilesSearchToolStripMenuItem.Click += new System.EventHandler(this.textFilesSearchToolStripMenuItem_Click);
             // 
@@ -234,13 +241,6 @@
             this.searcht.TabIndex = 14;
             this.searcht.Text = "";
             // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
             // PDF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +260,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(960, 540);
             this.Name = "PDF";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PDF Detective";
             this.menuStrip1.ResumeLayout(false);
