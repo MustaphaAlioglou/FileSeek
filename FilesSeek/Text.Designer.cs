@@ -55,7 +55,7 @@
             this.searcht.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.searcht.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searcht.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searcht.ForeColor = System.Drawing.Color.Lime;
+            this.searcht.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.searcht.Location = new System.Drawing.Point(0, 79);
             this.searcht.MinimumSize = new System.Drawing.Size(249, 350);
             this.searcht.Name = "searcht";
@@ -110,7 +110,7 @@
             this.result.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.result.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.result.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.result.ForeColor = System.Drawing.Color.Lime;
+            this.result.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.result.Location = new System.Drawing.Point(300, 79);
             this.result.Name = "result";
             this.result.ReadOnly = true;
@@ -167,7 +167,7 @@
             this.extract.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.extract.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.extract.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.extract.ForeColor = System.Drawing.Color.Lime;
+            this.extract.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.extract.Location = new System.Drawing.Point(297, 286);
             this.extract.Name = "extract";
             this.extract.ReadOnly = true;

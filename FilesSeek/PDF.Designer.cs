@@ -55,7 +55,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.result.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.result.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.result.ForeColor = System.Drawing.Color.Lime;
+            this.result.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.result.Location = new System.Drawing.Point(345, 74);
             this.result.Name = "result";
             this.result.ReadOnly = true;
@@ -71,7 +71,7 @@
             this.extract.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.extract.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.extract.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.extract.ForeColor = System.Drawing.Color.Lime;
+            this.extract.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.extract.Location = new System.Drawing.Point(345, 268);
             this.extract.Name = "extract";
             this.extract.ReadOnly = true;
@@ -138,14 +138,14 @@
             // powerPointSearchToolStripMenuItem
             // 
             this.powerPointSearchToolStripMenuItem.Name = "powerPointSearchToolStripMenuItem";
-            this.powerPointSearchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.powerPointSearchToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.powerPointSearchToolStripMenuItem.Text = "PowerPoint Search";
             this.powerPointSearchToolStripMenuItem.Click += new System.EventHandler(this.powerPointSearchToolStripMenuItem_Click);
             // 
             // textFilesSearchToolStripMenuItem
             // 
             this.textFilesSearchToolStripMenuItem.Name = "textFilesSearchToolStripMenuItem";
-            this.textFilesSearchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.textFilesSearchToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.textFilesSearchToolStripMenuItem.Text = "Text Files Search";
             this.textFilesSearchToolStripMenuItem.Click += new System.EventHandler(this.textFilesSearchToolStripMenuItem_Click);
             // 
@@ -234,7 +234,7 @@
             this.searcht.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.searcht.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searcht.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searcht.ForeColor = System.Drawing.Color.Lime;
+            this.searcht.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.searcht.Location = new System.Drawing.Point(15, 74);
             this.searcht.Name = "searcht";
             this.searcht.Size = new System.Drawing.Size(321, 365);

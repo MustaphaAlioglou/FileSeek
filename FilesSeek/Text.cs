@@ -67,7 +67,7 @@ namespace PDFDetective
                         {
                             extract.Text += lines[currentLine + i] + Environment.NewLine;
                         }
-                        extract.Text += "FOUND IT --->" + line + Environment.NewLine;
+                        extract.Text += line + " <--- Found it! :)" + Environment.NewLine;
                         for (int i = 1; i <= range; i++)
                         {
                             extract.Text += lines[currentLine + i] + Environment.NewLine;
@@ -78,6 +78,11 @@ namespace PDFDetective
                 currentLine = 0;
             }
             lfound.Text = totalfound.ToString();
+            if (extract.Text.Contains("<--- Found it! :)"))
+            {
+                extract.Select(extract.Text.IndexOf("<--- Found it! :)"), "<--- Found it! :)".Length);
+                extract.SelectionColor = Color.DeepSkyBlue;
+            }
         }
     }
 }
