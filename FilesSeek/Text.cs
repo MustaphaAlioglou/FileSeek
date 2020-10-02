@@ -84,13 +84,8 @@ namespace PDFDetective
             {
                 MessageBox.Show("Out of range error. Try a smaller sample range", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            HighlightText(extract, "<--- Found it! :) Line:", Color.LightSkyBlue);
             lfound.Text = totalfound.ToString();
-            if (extract.Text.Contains("<--- Found it! :) Line:"))
-            {
-                extract.Select(extract.Text.IndexOf("<--- Found it! :) Line:"), " <--- Found it! :) Line:".Length);
-                extract.SelectionColor = Color.DeepSkyBlue;
-            }
             checkforduplicates();
         }
 
@@ -122,6 +117,26 @@ namespace PDFDetective
                     }
                 }
             }
+        }
+
+        private void HighlightText(RichTextBox richtextbox, string word, Color color)
+        {
+            if (word == string.Empty)
+                return;
+
+            int s_start = richtextbox.SelectionStart, startIndex = 0, index;
+
+            while ((index = richtextbox.Text.IndexOf(word, startIndex)) != -1)
+            {
+                richtextbox.Select(index, word.Length);
+                richtextbox.SelectionColor = color;
+
+                startIndex = index + word.Length;
+            }
+
+            richtextbox.SelectionStart = s_start;
+            richtextbox.SelectionLength = 0;
+            richtextbox.SelectionColor = Color.Black;
         }
     }
 }
