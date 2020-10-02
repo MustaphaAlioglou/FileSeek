@@ -39,7 +39,7 @@ namespace WindowsFormsApp8
         private void button1_Click(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#C4C4C4");
-            result.Text = "";
+            clearlistbox();
             extract.Text = "";
 
             StringBuilder temp = new StringBuilder();
@@ -70,20 +70,51 @@ namespace WindowsFormsApp8
                     Regex ee = new Regex(searcht.Text);
                     if (ee.IsMatch(temp.ToString()))
                     {
-                        result.Text += "File found on file : " + item + "\n";
-                        result.Text += "Page :" + i + "\n";
-                        extract.Text += temp;
-                        extract.Text += item + "page :" + i + "-----------------\n\n";
+                        result.Items.Add(item);
+                        extract.Text += item + "page :" + i + "-----------------\n";
+                        extract.Text += temp + Environment.NewLine + Environment.NewLine;
                     }
 
                     temp.Clear();
                 }
             }
-            if (result.Text == "")
+            if (extract.Text == "")
             {
-                result.Text = "not found";
+                result.Items.Add("NOT FOUND");
+                extract.Text = "NOT FOUND";
             }
             this.BackColor = ColorTranslator.FromHtml("#2D2D30");
+            checkforduplicates();
+        }
+
+        private void clearlistbox()
+        {
+            for (int i = 0; i < result.Items.Count; i++)
+            {
+                result.Items.RemoveAt(i);
+            }
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", result.SelectedItem.ToString());
+        }
+
+        private void checkforduplicates()
+        {
+            int oo = result.Items.Count;
+            for (int i = 0; i < oo; i++)
+            {
+                for (int x = 1; x < oo; x++)
+                {
+                    if (result.Items[i].ToString() == result.Items[x].ToString())
+                    {
+                        result.Items.RemoveAt(x);
+                        x--;
+                        oo--;
+                    }
+                }
+            }
         }
     }
 }

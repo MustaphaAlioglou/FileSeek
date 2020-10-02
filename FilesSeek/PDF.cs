@@ -43,7 +43,7 @@ namespace WindowsFormsApp8
         {
             this.BackColor = ColorTranslator.FromHtml("#C4C4C4");
 
-            result.Text = "";
+            clearlistbox();
             extract.Text = "";
             //---------------------------------------------------------------------
 
@@ -62,21 +62,28 @@ namespace WindowsFormsApp8
                         var page = document.GetPage(i + 1);
                         if (regex.IsMatch(page.Text))
                         {
-                            result.Text += "Word Found In Page : " + (i + 1) + "\n";
-                            result.Text += "File " + item + "\n";
-                            //result.Text += "Total Pages : " + document.NumberOfPages + "\n";
-                            result.Text += "------------------------------" + "\n";
-                            extract.Text += page.Text + "\n";
+                            result.Items.Add(item);
                             extract.Text += item + "page :" + i + "-----------------\n";
+                            extract.Text += page.Text + "\n\n";
                         }
                     }
-                    if (result.Text == "")
+                    if (extract.Text == "")
                     {
-                        result.Text = "NOT FOUND";
+                        result.Items.Add("NOT FOUND");
+                        extract.Text = "NOT FOUND";
                     }
                 }
             }
             this.BackColor = ColorTranslator.FromHtml("#2D2D30");
+            checkforduplicates();
+        }
+
+        private void clearlistbox()
+        {
+            for (int i = 0; i < result.Items.Count; i++)
+            {
+                result.Items.RemoveAt(i);
+            }
         }
 
         private void searcht_KeyDown(object sender, KeyEventArgs e)
@@ -106,6 +113,28 @@ namespace WindowsFormsApp8
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void result_DoubleClick(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", result.SelectedItem.ToString());
+        }
+
+        private void checkforduplicates()
+        {
+            int oo = result.Items.Count;
+            for (int i = 0; i < oo; i++)
+            {
+                for (int x = 1; x < oo; x++)
+                {
+                    if (result.Items[i].ToString() == result.Items[x].ToString())
+                    {
+                        result.Items.RemoveAt(x);
+                        x--;
+                        oo--;
+                    }
+                }
+            }
         }
     }
 }

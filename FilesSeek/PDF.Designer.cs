@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.result = new System.Windows.Forms.RichTextBox();
             this.extract = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -46,22 +45,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.searcht = new System.Windows.Forms.RichTextBox();
+            this.result = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // result
-            // 
-            this.result.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.result.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
-            this.result.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.result.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.result.Location = new System.Drawing.Point(345, 74);
-            this.result.Name = "result";
-            this.result.ReadOnly = true;
-            this.result.Size = new System.Drawing.Size(599, 170);
-            this.result.TabIndex = 0;
-            this.result.Text = "";
             // 
             // extract
             // 
@@ -241,12 +227,29 @@
             this.searcht.TabIndex = 14;
             this.searcht.Text = "";
             // 
+            // result
+            // 
+            this.result.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.result.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.result.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.result.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.result.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.result.FormattingEnabled = true;
+            this.result.ItemHeight = 18;
+            this.result.Location = new System.Drawing.Point(345, 74);
+            this.result.Name = "result";
+            this.result.Size = new System.Drawing.Size(599, 162);
+            this.result.TabIndex = 15;
+            this.result.DoubleClick += new System.EventHandler(this.result_DoubleClick);
+            // 
             // PDF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(944, 501);
+            this.Controls.Add(this.result);
             this.Controls.Add(this.searcht);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -255,7 +258,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.extract);
-            this.Controls.Add(this.result);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(960, 540);
@@ -271,8 +273,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox result;
         private System.Windows.Forms.RichTextBox extract;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -290,6 +290,7 @@
         private System.Windows.Forms.ToolStripMenuItem powerPointSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem textFilesSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ListBox result;
     }
 }
 

@@ -48,40 +48,79 @@ namespace PDFDetective
                 int.TryParse(rangee.Text, out range);
 
             int currentLine = 0;
-            result.Clear();
+            clearlist();
             extract.Clear();
             var regex = new Regex(searcht.Text);
             List<string> lines;
-            foreach (var textfilepath in textFilesPath)
+            try
             {
-                lines = File.ReadLines(textfilepath).ToList();
-                foreach (var line in lines)
+                foreach (var textfilepath in textFilesPath)
                 {
-                    if (regex.IsMatch(line))
+                    lines = File.ReadLines(textfilepath).ToList();
+                    foreach (var line in lines)
                     {
-                        totalfound++;
-                        result.Text += textfilepath + Environment.NewLine + " ---------------------------------------" + Environment.NewLine;
-                        extract.Text += Environment.NewLine + "File (" + Path.GetFileName(textfilepath) + ")" +
-                            " ---------------------------------------" + Environment.NewLine;
-                        for (int i = -range; i < 0; i++)
+                        if (regex.IsMatch(line))
                         {
-                            extract.Text += lines[currentLine + i] + Environment.NewLine;
+                            totalfound++;
+                            result.Items.Add(textfilepath);
+                            extract.Text += Environment.NewLine + "File (" + Path.GetFileName(textfilepath) + ")" +
+                                " ---------------------------------------" + Environment.NewLine;
+                            for (int i = -range; i < 0; i++)
+                            {
+                                extract.Text += lines[currentLine + i] + Environment.NewLine;
+                            }
+                            extract.Text += line + " <--- Found it! :) Line: " + (currentLine + 1) + Environment.NewLine;
+                            for (int i = 1; i <= range; i++)
+                            {
+                                extract.Text += lines[currentLine + i] + Environment.NewLine + Environment.NewLine;
+                            }
                         }
-                        extract.Text += line + " <--- Found it! :)" + Environment.NewLine;
-                        for (int i = 1; i <= range; i++)
-                        {
-                            extract.Text += lines[currentLine + i] + Environment.NewLine;
-                        }
+                        currentLine++;
                     }
-                    currentLine++;
+                    currentLine = 0;
                 }
-                currentLine = 0;
             }
-            lfound.Text = totalfound.ToString();
-            if (extract.Text.Contains("<--- Found it! :)"))
+            catch (ArgumentOutOfRangeException)
             {
-                extract.Select(extract.Text.IndexOf("<--- Found it! :)"), "<--- Found it! :)".Length);
+                MessageBox.Show("Out of range error. Try a smaller sample range", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            lfound.Text = totalfound.ToString();
+            if (extract.Text.Contains("<--- Found it! :) Line:"))
+            {
+                extract.Select(extract.Text.IndexOf("<--- Found it! :) Line:"), " <--- Found it! :) Line:".Length);
                 extract.SelectionColor = Color.DeepSkyBlue;
+            }
+            checkforduplicates();
+        }
+
+        private void clearlist()
+        {
+            for (int i = 0; i < result.Items.Count; i++)
+            {
+                result.Items.RemoveAt(i);
+            }
+        }
+
+        private void result_DoubleClick(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", result.SelectedItem.ToString());
+        }
+
+        private void checkforduplicates()
+        {
+            int oo = result.Items.Count;
+            for (int i = 0; i < oo; i++)
+            {
+                for (int x = 1; x < oo; x++)
+                {
+                    if (result.Items[i].ToString() == result.Items[x].ToString())
+                    {
+                        result.Items.RemoveAt(x);
+                        x--;
+                        oo--;
+                    }
+                }
             }
         }
     }

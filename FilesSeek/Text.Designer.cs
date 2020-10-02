@@ -32,7 +32,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.total = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.result = new System.Windows.Forms.RichTextBox();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +44,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.rangee = new System.Windows.Forms.TextBox();
             this.lfound = new System.Windows.Forms.Label();
+            this.result = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,21 +102,6 @@
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // result
-            // 
-            this.result.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.result.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
-            this.result.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.result.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.result.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.result.Location = new System.Drawing.Point(300, 79);
-            this.result.Name = "result";
-            this.result.ReadOnly = true;
-            this.result.Size = new System.Drawing.Size(598, 183);
-            this.result.TabIndex = 28;
-            this.result.Text = "";
             // 
             // infoToolStripMenuItem
             // 
@@ -218,9 +203,9 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label6.Location = new System.Drawing.Point(297, 36);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(195, 18);
+            this.label6.Size = new System.Drawing.Size(218, 18);
             this.label6.TabIndex = 39;
-            this.label6.Text = "Line Range (Default range 5)";
+            this.label6.Text = "Sample Range (Default range 5)";
             // 
             // rangee
             // 
@@ -228,7 +213,7 @@
             this.rangee.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rangee.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rangee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.rangee.Location = new System.Drawing.Point(498, 36);
+            this.rangee.Location = new System.Drawing.Point(521, 37);
             this.rangee.Name = "rangee";
             this.rangee.Size = new System.Drawing.Size(53, 17);
             this.rangee.TabIndex = 40;
@@ -245,12 +230,29 @@
             this.lfound.TabIndex = 41;
             this.lfound.Text = "0";
             // 
+            // result
+            // 
+            this.result.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.result.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.result.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.result.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.result.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.result.FormattingEnabled = true;
+            this.result.ItemHeight = 18;
+            this.result.Location = new System.Drawing.Point(300, 79);
+            this.result.Name = "result";
+            this.result.Size = new System.Drawing.Size(597, 180);
+            this.result.TabIndex = 42;
+            this.result.DoubleClick += new System.EventHandler(this.result_DoubleClick);
+            // 
             // Text
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(898, 614);
+            this.Controls.Add(this.result);
             this.Controls.Add(this.lfound);
             this.Controls.Add(this.rangee);
             this.Controls.Add(this.label6);
@@ -260,7 +262,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.total);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.result);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.extract);
             this.Controls.Add(this.menuStrip1);
@@ -280,7 +281,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label total;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox result;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
@@ -293,5 +293,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox rangee;
         private System.Windows.Forms.Label lfound;
+        private System.Windows.Forms.ListBox result;
     }
 }

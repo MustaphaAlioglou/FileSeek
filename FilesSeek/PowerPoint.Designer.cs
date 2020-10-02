@@ -41,7 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.extract = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.result = new System.Windows.Forms.RichTextBox();
+            this.result = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -197,13 +197,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.result.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.result.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.result.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.result.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.result.FormattingEnabled = true;
+            this.result.ItemHeight = 18;
             this.result.Location = new System.Drawing.Point(273, 73);
             this.result.Name = "result";
-            this.result.ReadOnly = true;
-            this.result.Size = new System.Drawing.Size(671, 170);
-            this.result.TabIndex = 18;
-            this.result.Text = "";
+            this.result.Size = new System.Drawing.Size(671, 162);
+            this.result.TabIndex = 28;
+            this.result.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
             // 
             // PowerPoint
             // 
@@ -211,6 +213,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(944, 501);
+            this.Controls.Add(this.result);
             this.Controls.Add(this.searcht);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -220,7 +223,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.extract);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.result);
             this.MinimumSize = new System.Drawing.Size(960, 540);
             this.Name = "PowerPoint";
             this.ShowIcon = false;
@@ -247,6 +249,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox extract;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.RichTextBox result;
+        private System.Windows.Forms.ListBox result;
     }
 }
