@@ -46,6 +46,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.searcht = new System.Windows.Forms.RichTextBox();
             this.result = new System.Windows.Forms.ListBox();
+            this.status = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -243,12 +245,38 @@
             this.result.TabIndex = 15;
             this.result.DoubleClick += new System.EventHandler(this.result_DoubleClick);
             // 
+            // status
+            // 
+            this.status.AutoSize = true;
+            this.status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.status.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.status.Location = new System.Drawing.Point(835, 35);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(30, 18);
+            this.status.TabIndex = 16;
+            this.status.Text = "Idle";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label6.Location = new System.Drawing.Point(771, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 18);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Status :";
+            // 
             // PDF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(944, 501);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.status);
             this.Controls.Add(this.result);
             this.Controls.Add(this.searcht);
             this.Controls.Add(this.label4);
@@ -291,6 +319,8 @@
         private System.Windows.Forms.ToolStripMenuItem textFilesSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ListBox result;
+        private System.Windows.Forms.Label status;
+        private System.Windows.Forms.Label label6;
     }
 }
 

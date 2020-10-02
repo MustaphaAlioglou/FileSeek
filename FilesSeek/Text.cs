@@ -43,6 +43,9 @@ namespace PDFDetective
 
         private void button1_Click(object sender, EventArgs e)
         {
+            status.ForeColor = Color.Red;
+            status.Text = "Scanning";
+            this.Refresh();
             totalfound = 0;
             if (rangee.Text != string.Empty)
                 int.TryParse(rangee.Text, out range);
@@ -78,6 +81,7 @@ namespace PDFDetective
                         currentLine++;
                     }
                     currentLine = 0;
+                    lfound.Text = totalfound.ToString();
                 }
             }
             catch (ArgumentOutOfRangeException)
@@ -85,8 +89,9 @@ namespace PDFDetective
                 MessageBox.Show("Out of range error. Try a smaller sample range", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             HighlightText(extract, "<--- Found it! :) Line:", Color.LightSkyBlue);
-            lfound.Text = totalfound.ToString();
             checkforduplicates();
+            status.ForeColor = Color.Green;
+            status.Text = "Done";
         }
 
         private void clearlist()

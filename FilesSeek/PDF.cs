@@ -41,7 +41,11 @@ namespace WindowsFormsApp8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.BackColor = ColorTranslator.FromHtml("#C4C4C4");
+            status.ForeColor = Color.Red;
+            status.Text = "Scanning";
+            this.Refresh();
+
+            // this.BackColor = ColorTranslator.FromHtml("#C4C4C4");
 
             clearlistbox();
             extract.Text = "";
@@ -74,8 +78,10 @@ namespace WindowsFormsApp8
                     }
                 }
             }
-            this.BackColor = ColorTranslator.FromHtml("#2D2D30");
+            //this.BackColor = ColorTranslator.FromHtml("#2D2D30");
             checkforduplicates();
+            status.ForeColor = Color.Green;
+            status.Text = "Done";
         }
 
         private void clearlistbox()

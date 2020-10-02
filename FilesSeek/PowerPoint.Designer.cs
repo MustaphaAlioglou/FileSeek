@@ -42,6 +42,8 @@
             this.extract = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.result = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.status = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -207,12 +209,38 @@
             this.result.TabIndex = 28;
             this.result.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label6.Location = new System.Drawing.Point(797, 34);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 18);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Status :";
+            // 
+            // status
+            // 
+            this.status.AutoSize = true;
+            this.status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.status.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.status.Location = new System.Drawing.Point(861, 34);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(30, 18);
+            this.status.TabIndex = 29;
+            this.status.Text = "Idle";
+            // 
             // PowerPoint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(944, 501);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.status);
             this.Controls.Add(this.result);
             this.Controls.Add(this.searcht);
             this.Controls.Add(this.label4);
@@ -250,5 +278,7 @@
         private System.Windows.Forms.RichTextBox extract;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ListBox result;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label status;
     }
 }
