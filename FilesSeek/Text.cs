@@ -47,6 +47,7 @@ namespace PDFDetective
             status.Text = "Scanning";
             this.Refresh();
             totalfound = 0;
+            List<string> resultList = new List<string>();
             if (rangee.Text != string.Empty)
                 int.TryParse(rangee.Text, out range);
 
@@ -65,7 +66,7 @@ namespace PDFDetective
                         if (regex.IsMatch(line))
                         {
                             totalfound++;
-                            result.Items.Add(textfilepath);
+                            resultList.Add(textfilepath);
                             extract.Text += Environment.NewLine + "File (" + Path.GetFileName(textfilepath) + ")" +
                                 " ---------------------------------------" + Environment.NewLine;
                             for (int i = -range; i < 0; i++)
@@ -89,7 +90,11 @@ namespace PDFDetective
                 MessageBox.Show("Out of range error. Try a smaller sample range", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             HighlightText(extract, "<--- Found it! :) Line:", Color.LightSkyBlue);
-            checkforduplicates();
+            // checkforduplicates
+            var distinctResults = resultList.Distinct().ToList();
+            foreach (var item in distinctResults)
+                result.Items.Add(item);
+
             status.ForeColor = Color.Green;
             status.Text = "Done";
         }
@@ -107,22 +112,7 @@ namespace PDFDetective
             System.Diagnostics.Process.Start("explorer.exe", result.SelectedItem.ToString());
         }
 
-        private void checkforduplicates()
-        {
-            int oo = result.Items.Count;
-            for (int i = 0; i < oo; i++)
-            {
-                for (int x = 1; x < oo; x++)
-                {
-                    if (result.Items[i].ToString() == result.Items[x].ToString())
-                    {
-                        result.Items.RemoveAt(x);
-                        x--;
-                        oo--;
-                    }
-                }
-            }
-        }
+       
 
         private void HighlightText(RichTextBox richtextbox, string word, Color color)
         {
