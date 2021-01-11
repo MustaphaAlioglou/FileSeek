@@ -44,8 +44,9 @@ namespace WindowsFormsApp8
             //this.BackColor = ColorTranslator.FromHtml("#C4C4C4");
             clearlistbox();
             extract.Text = "";
-
+            var extractBuilder = new StringBuilder();
             StringBuilder temp = new StringBuilder();
+                    Regex ee = new Regex(searcht.Text);
             foreach (var item in files)
             {
                 int i = 0;
@@ -68,24 +69,25 @@ namespace WindowsFormsApp8
                             {
                                 MessageBox.Show("Error", "file corrupted : " + item + "\n" + eef.ToString());
                             }
-                        }
-                    }
-                    Regex ee = new Regex(searcht.Text);
+
                     if (ee.IsMatch(temp.ToString()))
                     {
                         result.Items.Add(item);
-                        extract.Text += item + "page :" + i + "-----------------\n";
-                        extract.Text += temp + Environment.NewLine + Environment.NewLine;
+                        extractBuilder.Append( item + "page :" + i + "-----------------\n");
+                        extractBuilder.Append(temp + Environment.NewLine + Environment.NewLine);
+                    }
+                        }
                     }
 
                     temp.Clear();
                 }
             }
-            if (extract.Text == "")
+            if (extractBuilder.ToString() == "")
             {
                 result.Items.Add("NOT FOUND");
-                extract.Text = "NOT FOUND";
+                extractBuilder.Append("NOT FOUND");
             }
+            extract.Text = extractBuilder.ToString();
             this.BackColor = ColorTranslator.FromHtml("#2D2D30");
             checkforduplicates();
             status.ForeColor = Color.Green;
