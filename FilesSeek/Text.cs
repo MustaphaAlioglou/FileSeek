@@ -112,8 +112,6 @@ namespace PDFDetective
             System.Diagnostics.Process.Start("explorer.exe", result.SelectedItem.ToString());
         }
 
-       
-
         private void HighlightText(RichTextBox richtextbox, string word, Color color)
         {
             if (word == string.Empty)

@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Reflection.Emit;
 using PDFDetective;
+using System.Linq;
 
 namespace WindowsFormsApp8
 {
@@ -44,7 +45,8 @@ namespace WindowsFormsApp8
             status.ForeColor = Color.Red;
             status.Text = "Scanning";
             this.Refresh();
-
+            result.Items.Clear();
+            var resultBuffer = new List<string>();
             // this.BackColor = ColorTranslator.FromHtml("#C4C4C4");
 
             clearlistbox();
@@ -66,21 +68,23 @@ namespace WindowsFormsApp8
                         var page = document.GetPage(i + 1);
                         if (regex.IsMatch(page.Text))
                         {
-                            result.Items.Add(item);
+                            resultBuffer.Add(item);
                             extract.Text += item + "page :" + i + "-----------------\n";
                             extract.Text += page.Text + "\n\n";
                         }
                     }
-                    if (extract.Text == "")
-                    {
-                        result.Items.Add("NOT FOUND");
-                        extract.Text = "NOT FOUND";
-                    }
                 }
             }
+            if (extract.Text == "")
+            {
+                resultBuffer.Add("NOT FOUND");
+                extract.Text = "NOT FOUND";
+            }
+            foreach (var item in resultBuffer.Distinct())
+                result.Items.Add(item);
             //this.BackColor = ColorTranslator.FromHtml("#2D2D30");
-           //result.Items.Add()
-                //distrinct
+            //result.Items.Add()
+            //distrinct
             status.ForeColor = Color.Green;
             status.Text = "Done";
         }
@@ -126,7 +130,5 @@ namespace WindowsFormsApp8
         {
             System.Diagnostics.Process.Start("explorer.exe", result.SelectedItem.ToString());
         }
-
-       
     }
 }
