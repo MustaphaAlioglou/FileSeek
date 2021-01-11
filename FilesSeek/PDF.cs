@@ -79,7 +79,8 @@ namespace WindowsFormsApp8
                 }
             }
             //this.BackColor = ColorTranslator.FromHtml("#2D2D30");
-            checkforduplicates();
+           //result.Items.Add()
+                //distrinct
             status.ForeColor = Color.Green;
             status.Text = "Done";
         }
@@ -126,21 +127,6 @@ namespace WindowsFormsApp8
             System.Diagnostics.Process.Start("explorer.exe", result.SelectedItem.ToString());
         }
 
-        private void checkforduplicates()
-        {
-            int oo = result.Items.Count;
-            for (int i = 0; i < oo; i++)
-            {
-                for (int x = 1; x < oo; x++)
-                {
-                    if (result.Items[i].ToString() == result.Items[x].ToString())
-                    {
-                        result.Items.RemoveAt(x);
-                        x--;
-                        oo--;
-                    }
-                }
-            }
-        }
+       
     }
 }

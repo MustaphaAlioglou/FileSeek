@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -44,9 +45,11 @@ namespace WindowsFormsApp8
             //this.BackColor = ColorTranslator.FromHtml("#C4C4C4");
             clearlistbox();
             extract.Text = "";
+            result.Items.Clear();
             var extractBuilder = new StringBuilder();
             StringBuilder temp = new StringBuilder();
-                    Regex ee = new Regex(searcht.Text);
+            List<string> resultBuffer = new List<string>();
+            Regex ee = new Regex(searcht.Text);
             foreach (var item in files)
             {
                 int i = 0;
@@ -70,12 +73,12 @@ namespace WindowsFormsApp8
                                 MessageBox.Show("Error", "file corrupted : " + item + "\n" + eef.ToString());
                             }
 
-                    if (ee.IsMatch(temp.ToString()))
-                    {
-                        result.Items.Add(item);
-                        extractBuilder.Append( item + "page :" + i + "-----------------\n");
-                        extractBuilder.Append(temp + Environment.NewLine + Environment.NewLine);
-                    }
+                            if (ee.IsMatch(temp.ToString()))
+                            {
+                                resultBuffer.Add(item);
+                                extractBuilder.Append(item + "page :" + i + "-----------------\n");
+                                extractBuilder.Append(temp + Environment.NewLine + Environment.NewLine);
+                            }
                         }
                     }
 
@@ -88,8 +91,14 @@ namespace WindowsFormsApp8
                 extractBuilder.Append("NOT FOUND");
             }
             extract.Text = extractBuilder.ToString();
+
+            foreach (var item in resultBuffer.Distinct())
+                result.Items.Add(item);
+
             this.BackColor = ColorTranslator.FromHtml("#2D2D30");
-            checkforduplicates();
+
+            //checkforduplicates();
+
             status.ForeColor = Color.Green;
             status.Text = "Done";
         }
